@@ -5,8 +5,8 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
     margin: auto;
-    width: 450px;
-    background-color: #f7b2c2;
+    width: 500px;
+    background-color: #fab6c6;
     text-align: center;
     border: 1px solid grey;
     border-radius: 14px;
@@ -17,8 +17,8 @@ const Title = styled.h1`
 `
 const List = styled.div`
     margin: auto;
-    width: 330px;
-    height: 320px;
+    width: 400px;
+    height: 360px;
     border: 1px solid black;
     background-color: white;
     text-align: left;
@@ -36,7 +36,7 @@ const Form = styled.form`
     justify-content: center;
 `
 const Input = styled.input`
-    width: 310px;
+    width: 90%;
     padding: 12px 12px;
     margin: auto;
     border-radius: 5px;
@@ -45,21 +45,21 @@ const Input = styled.input`
 const AddButton = styled.input`
     margin: auto;
     margin-top: 20px;
-    width: 140px;
+    width: 150px;
     height: 40px;
     border: 1px solid grey;
     border-radius: 4px;
-    background-color: #77f279;
+    background-color: #7df57f;
     box-shadow: 1px 1px 1px 1px grey;
     cursor: pointer;
     font-weight: bold;
     font-size: 16px;
 `
 const SubmitButton = styled.input`
-    background-color: #77f279;
+    background-color: #7df57f;
     margin: auto;
-    width: 330px;
-    height: 40px;
+    width: 400px;
+    height: 48px;
     border: 1px solid grey;
     border-radius: 4px;
     cursor: pointer;
@@ -96,27 +96,26 @@ const App = ({ wishList, dispatch }) => {
 
     return (
         <Wrapper>
-        
             <Title> MY WISHLIST</Title>
             <Content>
-            <List>
-                {wishList.length ?
-                     wishList.map((wish, index) => (
-                        <ul key={index + wish} onClick={() => handleDelete(wish)}> {wish}</ul>
-                    ))   : null}
-                    </List>
-            <Form onSubmit={handleAdd}>
-                <Input
-                    type='text'
-                    name='input'
-                    value={input}
-                    onChange={onChange}
-                />
-                <AddButton type='submit' value='Add' />
-            </Form>
-            <form onSubmit={onSubmit}>
-                <SubmitButton type='submit' value='Submit' />
-            </form>
+                <List>
+                    {wishList.length ?
+                        wishList.map((wish, index) => (
+                            <ul key={index + wish} onClick={() => handleDelete(wish)}> {wish}</ul>
+                        )) : null}
+                </List>
+                <Form onSubmit={handleAdd}>
+                    <Input
+                        type='text'
+                        name='input'
+                        value={input}
+                        onChange={onChange}
+                    />
+                    <AddButton type='submit' value='Add' />
+                </Form>
+                <form onSubmit={onSubmit}>
+                    <SubmitButton type='submit' value='Submit' />
+                </form>
             </Content>
         </Wrapper>
     )
